@@ -4,6 +4,9 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body";
 import Footer from "./components/Footer.js";
+import About from "./components/About.js";
+import Error from "./components/Error.js";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 //named import
 //import { Title } from "./components/Header.js";
@@ -35,5 +38,15 @@ const AppLayout = () => (
   </>
 );
 
+const appRouter = createBrowserRouter([
+  { path: "/", element: <AppLayout />, errorElement: <Error /> },
+  {
+    path: "/about",
+    element: <About />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+// root.render(<AppLayout />);
+//To render according to path, we pass the routing config
+root.render(<RouterProvider router={appRouter} />);
