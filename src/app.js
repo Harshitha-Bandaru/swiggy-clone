@@ -6,7 +6,10 @@ import Body from "./components/Body";
 import Footer from "./components/Footer.js";
 import About from "./components/About.js";
 import Error from "./components/Error.js";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Contact from "./components/Contact.js";
+
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import RestaurantMenu from "./components/RestaurantMenu.js";
 
 //named import
 //import { Title } from "./components/Header.js";
@@ -32,17 +35,36 @@ const styleObj = {
 const AppLayout = () => (
   <>
     <Header />
-    <Body />
+    {/* <Body /> */}
+    <Outlet />
     <Footer />
     {/* <A /> */}
   </>
 );
 
 const appRouter = createBrowserRouter([
-  { path: "/", element: <AppLayout />, errorElement: <Error /> },
   {
-    path: "/about",
-    element: <About />,
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:id",
+        element: <RestaurantMenu />,
+      },
+    ],
   },
 ]);
 
