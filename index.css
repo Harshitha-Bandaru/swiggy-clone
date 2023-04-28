@@ -37,3 +37,8 @@
   background-color: lightgrey;
   margin: 20px;
 }
+
+.restaurant-img {
+  width: 200px;
+  height: 25vh;
+}

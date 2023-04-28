@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantsList } from "../constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
   return restaurants.filter((restaurant) => {
@@ -55,10 +56,7 @@ const Body = () => {
           className="search-input"
           placeholder="Search"
           value={searchText}
-          onChange={(e) => {
-            // searchText = e.target.value;
-            setSearchText(e.target.value);
-          }}
+          onChange={(e) => setSearchText(e.target.value)}
         ></input>
 
         <button
@@ -88,7 +86,12 @@ const Body = () => {
         {/* Write logic for no restaurants found, here */}
         {filteredRestaurants.map((restaurant) => {
           return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+            <Link
+              to={"/restaurants/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              <RestaurantCard {...restaurant.data} />
+            </Link>
           );
         })}
       </div>
