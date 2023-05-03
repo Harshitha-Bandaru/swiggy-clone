@@ -18,17 +18,17 @@ class Profile extends React.Component {
 
     // console.log("child-componentDidMount" + this.props.name);
 
-    // const data = await fetch("https://api.github.com/users/Harshitha-Bandaru");
-    // const json = await data.json();
-    // this.setState({
-    //   userInfo: json,
-    // });
-    // console.log(json);
+    const data = await fetch("https://api.github.com/users/Harshitha-Bandaru");
+    const json = await data.json();
+    this.setState({
+      userInfo: json,
+    });
+    console.log(json);
     console.log("child-componentDidMount" + this.props.name);
 
-    this.timer = setInterval(() => {
-      console.log("setInterval");
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log("setInterval");
+    // }, 1000);
   }
 
   componentDidUpdate(prevState, prevProps) {
@@ -41,11 +41,11 @@ class Profile extends React.Component {
 
   componentWillUnmount() {
     console.log("componentWillUnmount");
-    clearInterval(this.timer);
+    // clearInterval(this.timer);
   }
   render() {
     console.log("child-render" + this.props.name);
-    // const { name, location, avatar_url } = this?.state?.userInfo;
+    const { name, location, avatar_url } = this?.state?.userInfo;
     return (
       <div>
         {/* <h2>This is a class based component</h2>
@@ -61,9 +61,9 @@ class Profile extends React.Component {
         >
           count
         </button> */}
-        {/* <h3>Name:{name}</h3>
+        <h3>Name:{name}</h3>
         <h3>Location:{location}</h3>
-        <img src={avatar_url} /> */}
+        <img src={avatar_url} />
       </div>
     );
   }
