@@ -35,7 +35,7 @@ const Body = () => {
 
   const isOnline = useIsOnline();
   if (!isOnline) {
-    return "OOPS!Check your internet connection";
+    return <h1>OOPS!Check your internet connection"</h1>;
   }
   if (!allRestaurants) {
     return null;

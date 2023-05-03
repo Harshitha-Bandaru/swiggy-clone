@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Logo from "../assets/img/foodvilla logo.png";
 import { Link } from "react-router-dom";
+import useIsOnline from "../utils/useIsOnline";
 
 // named export
 export const Title = () => {
@@ -17,6 +18,7 @@ const loggedinUser = () => {
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const isOnline = useIsOnline();
   return (
     <div className="header">
       <Title />
@@ -36,6 +38,7 @@ const Header = () => {
         </ul>
       </div>
       {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
+      <h1>{isOnline ? "✅" : "🛑"}</h1>
       {isLoggedin ? (
         <button onClick={() => setIsLoggedin(false)}>Login</button>
       ) : (
