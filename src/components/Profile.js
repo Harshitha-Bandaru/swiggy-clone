@@ -5,10 +5,21 @@ const Profile = ({ name }) => {
   const [count2, setCount2] = useState(6);
   useEffect(() => {
     //some API call
-  }, count1);
-  useEffect(() => {
-    //some API call
-  }, count2);
+    // timer = setInterval(() => {
+    //   console.log("setInterval");
+    // }, 1000);
+
+    // return () => {
+    //   clearInterval(timer);
+    // };
+
+    setTimeout(() => {
+      console.log("setTimeout");
+    }, 1000);
+  }, []);
+  // useEffect(() => {
+  //   //some API call
+  // }, count2);
   return (
     <div>
       <h2>This is functional component, ...</h2>

@@ -22,8 +22,9 @@ class About extends React.Component {
           you feel home
         </p>
         {/* <Outlet /> */}
-        <ClassProfile name={"Child1"} />
+        {/* <ClassProfile name={"Child1"} /> */}
         {/* <ClassProfile name={"Child2"} /> */}
+        <FunctionalProfile name={"child1"} />
       </div>
     );
   }
