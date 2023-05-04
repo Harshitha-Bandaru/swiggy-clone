@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
-import useIsOnline from "../utils/useIsOnline";
 
 //no key<<index key<unique key
 const Body = () => {
@@ -26,17 +25,18 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&page_type=DESKTOP_WEB_LISTING"
     );
-    console.log(data);
+    // console.log(data);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  const isOnline = useIsOnline();
-  if (!isOnline) {
-    return <h1>OOPS!Check your internet connection"</h1>;
-  }
+  console.log("render");
+  // const isOnline = useIsOnline();
+  // if (!isOnline) {
+  //   return <h1>OOPS!Check your internet connection"</h1>;
+  // }
   if (!allRestaurants) {
     return null;
   }
@@ -44,7 +44,6 @@ const Body = () => {
   // if (filteredRestaurants?.length === 0)
   //   return <h1>No restaurants match your filter!</h1>;
 
-  console.log("render");
   return allRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
