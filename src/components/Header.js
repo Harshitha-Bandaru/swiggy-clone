@@ -7,7 +7,7 @@ import useIsOnline from "../utils/useIsOnline";
 export const Title = () => {
   return (
     <a href="/">
-      <img className="logo" src={Logo} alt="logo"></img>
+      <img className="h-24 p-3" src={Logo} alt="logo"></img>
     </a>
   );
 };
@@ -20,28 +20,28 @@ const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const isOnline = useIsOnline();
   return (
-    <div className="header">
+    <div className="flex justify-between shadow-md bg-blue-200  sm:bg-green-400 md:bg-yellow-200">
       <Title />
-
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex py-10">
+          <li className="px-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-2">Cart</li>
+          <li className="px-2">{isOnline ? "✅" : "🛑"}</li>
         </ul>
       </div>
       {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
-      <h1>{isOnline ? "✅" : "🛑"}</h1>
+
       {isLoggedin ? (
         <button onClick={() => setIsLoggedin(false)}>Login</button>
       ) : (

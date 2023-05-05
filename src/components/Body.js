@@ -48,10 +48,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="bg-pink-300 p-3 mb-2">
         <input
           type="text"
-          className="search-input"
+          className="bg-transparent rounded-sm focus:bg-green-100"
           placeholder="Search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
@@ -59,7 +59,7 @@ const Body = () => {
 
         <button
           type="submit"
-          className="search-btn"
+          className="search-btn rounded-sm m-1 bg-pink-500 hover:bg-pink-600 w-fit"
           onClick={() => {
             // if (searchClicked === "true") {
             //   setSearchClicked("false");
@@ -75,7 +75,7 @@ const Body = () => {
         </button>
         {/* <h1>{searchClicked}</h1> */}
       </div>
-      <div className="restaurants-list">
+      <div className="restaurants-list flex flex-wrap">
         {/* {RestaurantCard({ restaurant: restaurantsList[0] })} */}
         {/* <RestaurantCard {...restaurantsList[0].data} />
       <RestaurantCard {...restaurantsList[1].data} />

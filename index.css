@@ -1,4 +1,22 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+- native CSS
+- SCSS/Saas
+- inline styling
+- libraries - material UI, chakra UI, base UI, ant UI
+- styled components
+
+- tailwind css 
+  - flexible
+  - less bundle size(minimal CSS)
+  - can write CSS on the go
+  - reusable
+*/
+
+/* .header {
   display: flex;
   justify-content: space-between;
   margin: 10px;
@@ -41,4 +59,4 @@
 .restaurant-img {
   width: 200px;
   height: 25vh;
-}
+} */
