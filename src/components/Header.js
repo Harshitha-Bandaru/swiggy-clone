@@ -12,15 +12,15 @@ export const Title = () => {
   );
 };
 
-const loggedinUser = () => {
-  return true;
-};
+// const loggedinUser = () => {
+//   return true;
+// };
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const isOnline = useIsOnline();
   return (
-    <div className="flex justify-between shadow-md bg-blue-200  sm:bg-green-400 md:bg-yellow-200">
+    <div className="flex justify-between shadow-md lg:bg-blue-200  sm:bg-green-400 md:bg-yellow-200">
       <Title />
       <div>
         <ul className="flex py-10">
