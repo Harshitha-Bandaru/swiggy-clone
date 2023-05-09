@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../assets/img/foodvilla logo.png";
 import { Link } from "react-router-dom";
 import useIsOnline from "../utils/useIsOnline";
+import UserContext from "../utils/UserContext";
 
 // named export
 export const Title = () => {
@@ -17,6 +18,7 @@ export const Title = () => {
 // };
 
 const Header = () => {
+  const { user } = useContext(UserContext);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const isOnline = useIsOnline();
   return (
@@ -42,6 +44,7 @@ const Header = () => {
       </div>
       {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
 
+      <span className="text-lg text-indigo-500 font-bold">{user.userName}</span>
       {isLoggedin ? (
         <button onClick={() => setIsLoggedin(false)}>Login</button>
       ) : (

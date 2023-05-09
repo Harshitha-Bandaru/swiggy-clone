@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 //default import
 import Header from "./components/Header.js";
@@ -11,6 +11,7 @@ import Profile from "./components/Profile.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import Shimmer from "./components/Shimmer.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserContext from "./utils/UserContext.js";
 
 // import Instamart from "./components/Instamart.js";
 
@@ -38,15 +39,22 @@ const styleObj = {
   backgroundColor: "red",
 };
 
-const AppLayout = () => (
-  <>
-    <Header />
-    {/* <Body /> */}
-    <Outlet />
-    <Footer />
-    {/* <A /> */}
-  </>
-);
+const AppLayout = () => {
+  const [user, setUser] = useState({
+    userName: "Harshitha Bandaru",
+    userEmail: "harshitha4547@gmail.com",
+  });
+  //say, some API call is made here to fetch user data here.
+  return (
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+      <Header />
+      {/* <Body /> */}
+      <Outlet />
+      <Footer />
+      {/* <A /> */}
+    </UserContext.Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {

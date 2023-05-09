@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import FunctionalProfile from "./Profile";
 import ClassProfile from "./ProfileClass";
+import UserContext from "../utils/UserContext";
 const About2 = () => {};
 
 class About extends React.Component {
@@ -21,6 +22,17 @@ class About extends React.Component {
           We are committed to deliver high quality food in best price, we make
           you feel home
         </p>
+        <UserContext.Consumer>
+          {({ user }) => {
+            // console.log(value);
+            return (
+              <p className="text-md text-black">
+                {user.userName}-{user.userEmail}
+              </p>
+            );
+          }}
+        </UserContext.Consumer>
+
         {/* <Outlet /> */}
         <ClassProfile name={"Child1"} />
         {/* <ClassProfile name={"Child2"} /> */}
