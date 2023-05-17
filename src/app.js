@@ -12,6 +12,8 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import Shimmer from "./components/Shimmer.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";
+import store from "./utils/store.js";
 
 // import Instamart from "./components/Instamart.js";
 
@@ -46,13 +48,15 @@ const AppLayout = () => {
   });
   //say, some API call is made here to fetch user data here.
   return (
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
-      <Header />
-      {/* <Body /> */}
-      <Outlet />
-      <Footer />
-      {/* <A /> */}
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        {/* <Body /> */}
+        <Outlet />
+        <Footer />
+        {/* <A /> */}
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

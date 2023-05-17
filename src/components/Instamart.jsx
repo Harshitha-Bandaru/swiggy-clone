@@ -47,14 +47,13 @@ const Instamart = () => {
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiatfacilis quidem suscipit inventore autem officiis obcaecati laboriosamitaque qui, dolorum aliquid fugit? Cumque harum fuga perferendis,impedit reiciendis maiores iste, soluta rem laboriosam facilismolestiae eaque hic distinctio officia porro quisquam undevoluptatibus aliquam praesentium. Eveniet impedit commodi quidem a."
         }
         isVisible={visibleSection === "about"}
-        setIsVisible={(bool) => {
+        setIsVisible={() => {
           // setSectionConfig({
           //   showAbout: true,
           //   showTeam: false,
           //   showCareers: false,
           // });
 
-          isVisible = bool;
           setVisibleSection("about");
         }}
       />
@@ -62,14 +61,13 @@ const Instamart = () => {
         title={"Team - This is us"}
         description={"This is some lorem ipsum text"}
         isVisible={visibleSection === "team"}
-        setIsVisible={(bool) => {
+        setIsVisible={() => {
           // setSectionConfig({
           //   showAbout: false,
           //   showTeam: true,
           //   showCareers: false,
           // });
 
-          isVisible = bool;
           setVisibleSection("team");
         }}
       />
@@ -77,14 +75,13 @@ const Instamart = () => {
         title={"Careers - This is me"}
         description={"This is some lorem ipsum text"}
         isVisible={visibleSection === "career"}
-        setIsVisible={(bool) => {
+        setIsVisible={() => {
           // setSectionConfig({
           //   showAbout: false,
           //   showTeam: false,
           //   showCareers: true,
           // });
 
-          isVisible = bool;
           setVisibleSection("career");
         }}
       />
