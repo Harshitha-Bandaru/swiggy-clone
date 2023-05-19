@@ -4,7 +4,7 @@ import { IMG_CDN_URL } from "../constants";
 import Shimmer from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { addItem } from "../utils/cartSlice.js";
 
 const RestaurantMenu = () => {
   //   const params = useParams();
@@ -40,7 +40,12 @@ const RestaurantMenu = () => {
       <h3>{restaurant.avgRating} stars</h3>
       <h3>Cost for two:{restaurant.costForTwoMessage}</h3>
       <div>
-        <button onClick={() => handleAddItem()}>Add</button>
+        <button
+          className="p-1 m-2 bg-green-400"
+          onClick={() => handleAddItem()}
+        >
+          Add
+        </button>
       </div>
     </div>
   );

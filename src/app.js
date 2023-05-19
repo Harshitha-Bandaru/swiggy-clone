@@ -14,6 +14,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import store from "./utils/store.js";
+import Cart from "./components/Cart.js";
 
 // import Instamart from "./components/Instamart.js";
 
@@ -95,6 +96,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

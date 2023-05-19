@@ -40,7 +40,9 @@ const Header = () => {
           <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li className="px-2">Cart - {cartItems.length}</li>
+          <li className="px-2">
+            <Link to="/cart">Cart - {cartItems.length}</Link>
+          </li>
           <li className="px-2">{isOnline ? "✅" : "🛑"}</li>
         </ul>
       </div>
