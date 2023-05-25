@@ -39,21 +39,21 @@ const Body = () => {
   // if (!isOnline) {
   //   return <h1>OOPS!Check your internet connection"</h1>;
   // }
-  if (!allRestaurants) {
-    return null;
-  }
+  // if (!allRestaurants) {
+  //   return null;
+  // }
   //early return
   // if (filteredRestaurants?.length === 0)
   //   return <h1>No restaurants match your filter!</h1>;
 
-  return allRestaurants.length === 0 ? (
+  return !allRestaurants.length ? (
     <Shimmer />
   ) : (
     <>
-      <div className="bg-pink-300 p-3 mb-2">
+      <div className="p-3 mb-2">
         <input
           type="text"
-          className="bg-transparent rounded-sm focus:bg-green-100"
+          className="bg-transparent m-1 p-1 rounded-sm focus:border-black"
           placeholder="Search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
@@ -61,7 +61,7 @@ const Body = () => {
 
         <button
           type="submit"
-          className="search-btn rounded-sm m-1 bg-pink-500 hover:bg-pink-600 w-fit"
+          className="search-btn rounded-md m-1 p-1 bg-blue-200 w-fit"
           onClick={() => {
             // if (searchClicked === "true") {
             //   setSearchClicked("false");
@@ -76,7 +76,7 @@ const Body = () => {
           Search
         </button>
         {/* <h1>{searchClicked}</h1> */}
-        <input
+        {/* <input
           type="text"
           value={user.userName}
           onChange={(e) => {
@@ -95,9 +95,9 @@ const Body = () => {
               userEmail: e.target.value,
             });
           }}
-        ></input>
+        ></input> */}
       </div>
-      <div className="restaurants-list flex flex-wrap">
+      <div className="restaurants-list flex flex-wrap justify-around">
         {/* {RestaurantCard({ restaurant: restaurantsList[0] })} */}
         {/* <RestaurantCard {...restaurantsList[0].data} />
       <RestaurantCard {...restaurantsList[1].data} />

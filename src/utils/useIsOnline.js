@@ -17,7 +17,7 @@ const useIsOnline = () => {
       window.removeEventListener("offline", handleOffline);
     };
   }, []);
-  console.log("isOnline render" + isOnline);
+  // console.log("isOnline render" + isOnline);
   return isOnline;
 };
 

@@ -11,9 +11,14 @@ const Cart = () => {
   return (
     <div>
       <h1 className="font-bold text-3xl">Cart Items</h1>
-      {cartItems.map((item) => {
-        return <h1>{item}</h1>;
-      })}
+      {cartItems.map((item) => (
+        // return <h1>{item}</h1>;
+        <div>
+          <h1>{item?.menuItemName}</h1>
+          <h1>{item?.price / 100}</h1>
+          <span>{item?.quantity}</span>
+        </div>
+      ))}
       <button className="bg-red-400" onClick={() => handleClearCart()}>
         Clear Cart
       </button>

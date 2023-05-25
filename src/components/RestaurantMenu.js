@@ -17,7 +17,7 @@ const RestaurantMenu = () => {
     name,
     areaName,
     cuisines,
-    avgRating,
+    avgRatingString,
     totalRatingsString,
     costForTwoMessage,
   } = restaurantData;
@@ -27,8 +27,8 @@ const RestaurantMenu = () => {
   console.log(restaurantMenu);
 
   const dispatch = useDispatch();
-  const handleAddItem = () => {
-    dispatch(addItem("Carrot"));
+  const handleAddItem = (item) => {
+    dispatch(addItem({ ...item, quantity: 1 }));
   };
 
   //   console.log(params);
@@ -47,20 +47,18 @@ const RestaurantMenu = () => {
           <span className="text-gray-400">{areaName}, </span>
           <span className="text-gray-400">{lastMileTravelString}</span>
           <div>
-            <span className="text-gray-400 mt-2">
-              {lastMileTravelString + "|"}
-            </span>
+            <span className="text-gray-400 mt-2">{lastMileTravelString} |</span>
             <span className="text-gray-400 mt-2">
               ₹40 delivery fee will apply
             </span>
           </div>
           <div>
-            <span>{deliveryTime + ""}</span>
+            <span>{deliveryTime}|</span>
             <span>{costForTwoMessage}</span>
           </div>
         </div>
         <div className="border-solid">
-          <h3>{avgRating} stars</h3>
+          <h3>{avgRatingString} stars</h3>
         </div>
       </div>
       <div>
@@ -68,11 +66,11 @@ const RestaurantMenu = () => {
         <ul>
           {/* {regularCard?.map((c) => (
             <>
-              {c?.card?.card?.categories?.map((i) => (
+              {c?.card?.card?.categories?.map((item) => (
                 <>
-                  <li className="list-disc">{i?.title}</li>
+                  <li className="list-disc">{item?.title}</li>
                   <>
-                    {i?.itemCards?.map((item) => (
+                    {item?.itemCards?.map((item) => (
                       <li>{item?.card?.info?.name}</li>
                     ))}
                   </>
@@ -80,19 +78,24 @@ const RestaurantMenu = () => {
               ))}
             </>
           ))} */}
-          {restaurantMenu.map((i) => (
-            <div className="flex flex-row justify-between items-center p-1 m-2">
+          {restaurantMenu.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-row justify-between items-center p-1 m-2"
+            >
               <div>
                 <li className="font-sans text-xl font-medium mt-1">
-                  {i?.menuItemName}
+                  {item?.menuItemName}
                 </li>
-                <li className=" font-normal text-lg mt-1">₹{i?.price / 100}</li>
+                <li className=" font-normal text-lg mt-1">
+                  ₹{item?.price / 100}
+                </li>
                 <p className="text-base font-thin text-gray-400 mt-1">
-                  {i?.description}
+                  {item?.description}
                 </p>
                 <button
                   className="p-1 m-2 bg-green-400"
-                  onClick={() => handleAddItem()}
+                  onClick={() => handleAddItem(item)}
                 >
                   Add
                 </button>
@@ -100,7 +103,7 @@ const RestaurantMenu = () => {
               <div>
                 <img
                   className="h-32 w-32"
-                  src={IMG_CDN_URL + i?.menuItemImageId}
+                  src={IMG_CDN_URL + item?.menuItemImageId}
                 />
               </div>
               <hr />

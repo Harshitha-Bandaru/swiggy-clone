@@ -3,11 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: ["Apples", "Grapes"],
+    items: [],
   },
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      var flag = 0;
+      state.items.forEach((item, i) => {
+        if (action.payload.menuItemId === item.menuItemId) {
+          flag = 1;
+          item.quantity += 1;
+          console.log(i);
+          return;
+        }
+      });
+      if (!flag) {
+        state.items.push(action.payload);
+      }
+      // console.log(state.items.includes(cartItem));
+      // state.items.push(action.payload);
       // reducers are normal functions,
       // but they don't return anything, they automagically update the UI
     },

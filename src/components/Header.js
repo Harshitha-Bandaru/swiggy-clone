@@ -19,42 +19,50 @@ export const Title = () => {
 // };
 
 const Header = () => {
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const [isLoggedin, setIsLoggedin] = useState(false);
+
+  const { user } = useContext(UserContext);
   const isOnline = useIsOnline();
   const cartItems = useSelector((store) => store.cart.items);
+  const cartItemsCount = cartItems.reduce((count, item) => {
+    return count + item.quantity;
+  }, 0);
   return (
-    <div className="flex justify-between shadow-md lg:bg-blue-200  sm:bg-green-400 md:bg-yellow-200">
-      <Title />
-      <div>
-        <ul className="flex py-10">
-          <li className="px-2">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="px-2">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="px-2">
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className="px-2">
-            <Link to="/instamart">Instamart</Link>
-          </li>
-          <li className="px-2">
-            <Link to="/cart">Cart - {cartItems.length}</Link>
-          </li>
-          <li className="px-2">{isOnline ? "✅" : "🛑"}</li>
-        </ul>
+    <>
+      <div className="flex justify-between shadow-md">
+        <Title />
+        <div>
+          <ul className="flex py-10">
+            <li className="px-2">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="px-2">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="px-2">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="px-2">
+              <Link to="/instamart">Instamart</Link>
+            </li>
+            <li className="px-2">
+              <Link to="/cart">Cart - {cartItemsCount}</Link>
+            </li>
+            <li className="px-2">{user.userName}</li>
+            <li className="px-2">
+              {isLoggedin ? (
+                <button onClick={() => setIsLoggedin(false)}>Login</button>
+              ) : (
+                <button onClick={() => setIsLoggedin(true)}>Logout</button>
+              )}
+            </li>
+            <li className="px-2">{isOnline ? "✅" : "🛑"}</li>
+          </ul>
+        </div>
+        {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
       </div>
-      {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
-
-      <span className="text-lg text-indigo-500 font-bold">{user.userName}</span>
-      {isLoggedin ? (
-        <button onClick={() => setIsLoggedin(false)}>Login</button>
-      ) : (
-        <button onClick={() => setIsLoggedin(true)}>Logout</button>
-      )}
-    </div>
+    </>
   );
 };
 
