@@ -12,7 +12,7 @@ const useRestaurant = (id) => {
     const json = await data.json();
     setRestaurantData(json?.data?.cards?.[0]?.card?.card?.info);
     // console.log(json?.data?.cards[0]?.card?.card?.info);
-    console.log(json);
+    // console.log(json);
 
     const menuItems = [];
     const regularCard =

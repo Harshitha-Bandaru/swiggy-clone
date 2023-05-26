@@ -12,7 +12,7 @@ const cartSlice = createSlice({
         if (action.payload.menuItemId === item.menuItemId) {
           flag = 1;
           item.quantity += 1;
-          console.log(i);
+          // console.log(i);
           return;
         }
       });
@@ -25,7 +25,17 @@ const cartSlice = createSlice({
       // but they don't return anything, they automagically update the UI
     },
     removeItem: (state, action) => {
-      state.items.pop();
+      state.items.forEach((item, i) => {
+        if (action.payload.menuItemId === item.menuItemId) {
+          if (item.quantity === 1) {
+            state.items.splice(i, 1);
+            return;
+          } else {
+            item.quantity -= 1;
+            return;
+          }
+        }
+      });
     },
     clearCart: (state) => {
       state.items = [];

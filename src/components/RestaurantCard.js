@@ -1,7 +1,7 @@
 import { IMG_CDN_URL } from "../constants";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
-import star from "../assets/img/star.svg";
+import StarIcon from "@mui/icons-material/Star";
 const RestaurantCard = ({
   name,
   cloudinaryImageId,
@@ -14,10 +14,10 @@ const RestaurantCard = ({
   // const { restaurant } = props;
   // const { data } = restaurant;
   // const { name, cloudinaryImageId, cuisines, avgRating } = data;
-  console.log({ costForTwo, sla });
+  // console.log({ costForTwo, sla });
   const { user } = useContext(UserContext);
   return (
-    <div className="card w-64 p-2 m-3 h-72 hover:shadow-lg flex flex-col justify-between items-start">
+    <div className="card w-64 p-2 m-3 h-72  hover:shadow-lg hover:border hover:border-gray-200 flex flex-col justify-between items-start">
       <img
         src={`${IMG_CDN_URL}${cloudinaryImageId}`}
         alt="subway-image"
@@ -27,13 +27,19 @@ const RestaurantCard = ({
       <h3 className="break-words text-sm text-gray-600 pt-1">
         {cuisines?.join(", ")}
       </h3>
-      <div className="mt-2 flex flex-row justify-around">
-        <div className="bg-green-400 pl-0 ml-0 pt-0">
-          <img src={star} className="h-4 w-4 inline"></img>
-          <span className="text-sm ml-1">{avgRating}</span>
+      <div className="mt-2 flex flex-row justify-between items-center w-full">
+        <div
+          className={`w-12 flex items-center p-1 ${
+            avgRating >= 4.0 ? "bg-[#48c479]" : "bg-[#db7c38]"
+          }`}
+        >
+          {/* <img src={star} className="h-4 w-4"></img> */}
+          <StarIcon fontSize="22px" className="text-white" />
+          <span className="text-xs text-white ml-1">{avgRating}</span>
         </div>
-        <span className="text-sm">{sla?.deliveryTime} MINS</span>
-        <span className="text-sm">₹{costForTwo / 100} FOR TWO</span>
+
+        <span className="text-xs">{sla?.deliveryTime} MINS</span>
+        <span className="text-xs">₹{costForTwo / 100} FOR TWO</span>
       </div>
 
       {/* <h4 className="text-sm">{user.userName}</h4> */}
