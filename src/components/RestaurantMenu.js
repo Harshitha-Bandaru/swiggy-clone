@@ -6,6 +6,8 @@ import useRestaurant from "../utils/useRestaurant";
 import StarIcon from "@mui/icons-material/Star";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice.js";
+import nonVegIcon from "../assets/img/nonVegIcon.png";
+import vegIcon from "../assets/img/vegIcon.png";
 
 const RestaurantMenu = () => {
   //   const params = useParams();
@@ -79,16 +81,24 @@ const RestaurantMenu = () => {
         <ul>
           {restaurantMenu.map((item) => (
             <div
-              key={item.id}
+              key={item?.id}
               className="flex justify-between items-center my-4 border border-t-gray-300 border-b-0 border-x-0 p-2"
             >
               <div className="w-3/4">
+                {item?.isVeg ? (
+                  <img src={vegIcon} alt="Veg Icon" className="h-6 w-6"></img>
+                ) : (
+                  <img
+                    src={nonVegIcon}
+                    alt="Non Veg Icon"
+                    className="h-6 w-6"
+                  ></img>
+                )}
                 <li className="text-base font-semibold mt-1">
                   {item?.menuItemName}
                 </li>
                 <li className=" text-sm font-medium mt-1">
                   ₹{item?.price / 100 || item?.defaultPrice / 100}
-                  {console.log(item)}
                 </li>
                 <p className="text-sm  text-gray-400 mt-2">
                   {item?.description}

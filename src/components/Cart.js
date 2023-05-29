@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart, removeItem, addItem } from "../utils/cartSlice";
+import nonVegIcon from "../assets/img/nonVegIcon.png";
+import vegIcon from "../assets/img/vegIcon.png";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -82,7 +84,20 @@ const Cart = () => {
         <h1 className="font-bold text-xl">Items</h1>
         {cartItems.map((item) => (
           <div className="flex flex-row justify-between items-center flex-grow my-2">
-            <div className="w-3/6 ">
+            <div className="w-3/6 flex flex-row">
+              {item?.isVeg ? (
+                <img
+                  src={vegIcon}
+                  alt="Veg Icon"
+                  className="h-6 w-6 mr-1"
+                ></img>
+              ) : (
+                <img
+                  src={nonVegIcon}
+                  alt="Non Veg Icon"
+                  className="h-6 w-6 mr-1"
+                ></img>
+              )}
               <h1 className="text-base font-normal">{item?.menuItemName}</h1>
             </div>
             <div className="w-1/6  ">

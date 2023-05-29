@@ -34,25 +34,25 @@ const Header = () => {
         <Title />
         <div>
           <ul className="flex py-10">
-            <li className="px-2 hover:text-[#fc8019]  text-base">
+            <li className="px-2 hover:text-[#fc8019]  text-lg">
               <Link to="/">Home</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019]  text-base">
+            <li className="px-2 hover:text-[#fc8019]  text-lg">
               <Link to="/about">About</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019] text-base">
+            <li className="px-2 hover:text-[#fc8019] text-lg">
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019]  text-base">
+            <li className="px-2 hover:text-[#fc8019]  text-lg">
               <Link to="/instamart">Instamart</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019] text-base">
+            <li className="px-2 hover:text-[#fc8019] text-lg">
               <Link to="/cart">Cart - {cartItemsCount}</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019]  text-base">
+            <li className="px-2 hover:text-[#fc8019]  text-lg">
               {user.userName}
             </li>
-            <li className="px-2 hover:text-[#fc8019]  text-base">
+            <li className="px-2 hover:text-[#fc8019]  text-lg">
               {isLoggedin ? (
                 <button onClick={() => setIsLoggedin(false)}>Login</button>
               ) : (

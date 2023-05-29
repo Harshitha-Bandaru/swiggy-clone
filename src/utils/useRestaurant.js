@@ -25,7 +25,7 @@ const useRestaurant = (id) => {
           // console.log(itemCard);
           itemCard?.map((item) => {
             const menuItem = item?.card?.info;
-            console.log(menuItem);
+            console.log({ menuItem });
             const {
               id: menuItemId,
               name: menuItemName,
@@ -33,6 +33,7 @@ const useRestaurant = (id) => {
               imageId: menuItemImageId,
               description,
               defaultPrice,
+              isVeg,
             } = menuItem;
             menuItems.push({
               menuItemId,
@@ -41,6 +42,7 @@ const useRestaurant = (id) => {
               menuItemImageId,
               description,
               defaultPrice,
+              isVeg,
             });
             // menuItems.push(menuItem);
           });
@@ -48,9 +50,10 @@ const useRestaurant = (id) => {
       } else {
         // console.log({ categoryCard });
         const itemCard = categoryCard?.itemCards;
-        console.log(itemCard);
+        // console.log(itemCard);
         itemCard?.map((j) => {
           const menuItem = j?.card?.info;
+          console.log(menuItem);
           const {
             id: menuItemId,
             name: menuItemName,
@@ -58,6 +61,7 @@ const useRestaurant = (id) => {
             imageId: menuItemImageId,
             description,
             defaultPrice,
+            isVeg,
           } = menuItem;
           menuItems.push({
             menuItemId,
@@ -66,6 +70,7 @@ const useRestaurant = (id) => {
             menuItemImageId,
             description,
             defaultPrice,
+            isVeg,
           });
         });
       }
