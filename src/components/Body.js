@@ -7,6 +7,7 @@ import { filterData } from "../utils/helper";
 import UserContext from "../utils/UserContext";
 
 //no key<<index key<unique key
+//id:323673-this has default price
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   //   const [searchClicked, setSearchClicked] = useState("false");
@@ -61,7 +62,7 @@ const Body = () => {
 
         <button
           type="submit"
-          className="search-btn rounded-md m-1 p-1 bg-blue-200 w-fit"
+          className="search-btn rounded-md m-1 p-1 bg-[#48c479] w-fit text-white"
           onClick={() => {
             // if (searchClicked === "true") {
             //   setSearchClicked("false");

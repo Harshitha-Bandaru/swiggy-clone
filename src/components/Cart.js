@@ -6,7 +6,7 @@ const Cart = () => {
   console.log(cartItems);
   const dispatch = useDispatch();
   const totalPrice = cartItems.reduce((c, i) => {
-    return c + i?.quantity * (i?.price / 100);
+    return c + i?.quantity * (i?.price / 100 || i?.defaultPrice / 100);
   }, 0.0);
   return (
     <div className="flex flex-row">
@@ -103,10 +103,11 @@ const Cart = () => {
               </div>
             </div>
             <h1 className="w-1/6  text-base text-gray-600 font-normal text-center">
-              {item?.quantity}*{item?.price / 100}
+              {item?.quantity}*{item?.price / 100 || item?.defaultPrice / 100}
             </h1>
             <h1 className="w-1/6  text-base text-gray-600 font-normal text-end ">
-              ₹{(item?.price / 100) * item?.quantity}
+              ₹
+              {(item?.price / 100 || item?.defaultPrice / 100) * item?.quantity}
             </h1>
           </div>
         ))}

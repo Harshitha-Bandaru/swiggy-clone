@@ -56,7 +56,7 @@ const RestaurantMenu = () => {
             </div>
           </div>
         </div>
-        <div className="border border-solid flex flex-col items-center justify-around p-2">
+        <div className="border border-solid flex flex-col items-center justify-around p-2 m-2">
           <div
             className={`w-12 flex items-center p-1 ${
               parseFloat(avgRatingString) >= 4.0
@@ -87,7 +87,8 @@ const RestaurantMenu = () => {
                   {item?.menuItemName}
                 </li>
                 <li className=" text-sm font-medium mt-1">
-                  ₹{item?.price / 100}
+                  ₹{item?.price / 100 || item?.defaultPrice / 100}
+                  {console.log(item)}
                 </li>
                 <p className="text-sm  text-gray-400 mt-2">
                   {item?.description}

@@ -32,6 +32,7 @@ const useRestaurant = (id) => {
               price,
               imageId: menuItemImageId,
               description,
+              defaultPrice,
             } = menuItem;
             menuItems.push({
               menuItemId,
@@ -39,6 +40,7 @@ const useRestaurant = (id) => {
               price,
               menuItemImageId,
               description,
+              defaultPrice,
             });
             // menuItems.push(menuItem);
           });
@@ -55,6 +57,7 @@ const useRestaurant = (id) => {
             price,
             imageId: menuItemImageId,
             description,
+            defaultPrice,
           } = menuItem;
           menuItems.push({
             menuItemId,
@@ -62,6 +65,7 @@ const useRestaurant = (id) => {
             price,
             menuItemImageId,
             description,
+            defaultPrice,
           });
         });
       }
