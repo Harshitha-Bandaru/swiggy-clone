@@ -47,7 +47,7 @@ const Body = () => {
   // if (filteredRestaurants?.length === 0)
   //   return <h1>No restaurants match your filter!</h1>;
 
-  return !allRestaurants.length ? (
+  return !allRestaurants?.length ? (
     <Shimmer />
   ) : (
     <>
