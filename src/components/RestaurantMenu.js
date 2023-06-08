@@ -88,6 +88,7 @@ const RestaurantMenu = () => {
                 {item?.isVeg ? (
                   <img src={vegIcon} alt="Veg Icon" className="h-6 w-6"></img>
                 ) : (
+                  // <vegNonveg className="text-green-300" />
                   <img
                     src={nonVegIcon}
                     alt="Non Veg Icon"
