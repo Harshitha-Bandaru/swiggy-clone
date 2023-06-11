@@ -39,7 +39,7 @@ const RestaurantMenu = () => {
   // if (!restaurant) {
   //   return <Shimmer />;
   // }
-  return !restaurantData ? (
+  return restaurantMenu.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="flex flex-col justify-around items-center my-8">

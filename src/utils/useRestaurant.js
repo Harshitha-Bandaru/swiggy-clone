@@ -12,15 +12,15 @@ const useRestaurant = (id) => {
     const json = await data.json();
     setRestaurantData(json?.data?.cards?.[0]?.card?.card?.info);
     // console.log(json?.data?.cards[0]?.card?.card?.info);
-    // console.log(json);
+    console.log(json);
 
     const menuItems = [];
     const regularCard =
       json?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     regularCard?.map((c) => {
       const categoryCard = c?.card?.card;
-      if (categoryCard?.category) {
-        category?.map((i) => {
+      if (categoryCard?.categories) {
+        categoryCard?.categories?.map((i) => {
           const itemCard = i?.itemCards;
           // console.log(itemCard);
           itemCard?.map((item) => {
