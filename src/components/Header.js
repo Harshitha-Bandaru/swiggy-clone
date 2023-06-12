@@ -1,15 +1,15 @@
 import { useState, useContext } from "react";
-import Logo from "../assets/img/foodvilla logo.png";
+import Logo from "../assets/img/savoury.png";
 import { Link } from "react-router-dom";
 import useIsOnline from "../utils/useIsOnline";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import LogoutIcon from "@mui/icons-material/Logout";
 
-// named export
-export const Title = () => {
+const Title = () => {
   return (
     <a href="/">
-      <img className="h-24 p-3" src={Logo} alt="logo"></img>
+      <img className="h-24 w-28 p-4" src={Logo} alt="logo"></img>
     </a>
   );
 };
@@ -19,9 +19,7 @@ export const Title = () => {
 // };
 
 const Header = () => {
-  // const { user } = useContext(UserContext);
   const [isLoggedin, setIsLoggedin] = useState(false);
-
   const { user } = useContext(UserContext);
   const isOnline = useIsOnline();
   const cartItems = useSelector((store) => store.cart.items);
@@ -49,17 +47,26 @@ const Header = () => {
             <li className="px-2 hover:text-[#fc8019] text-lg">
               <Link to="/cart">Cart - {cartItemsCount}</Link>
             </li>
-            <li className="px-2 hover:text-[#fc8019]  text-lg">
-              {user.userName}
-            </li>
-            <li className="px-2 hover:text-[#fc8019]  text-lg">
-              {isLoggedin ? (
-                <button onClick={() => setIsLoggedin(false)}>Login</button>
-              ) : (
-                <button onClick={() => setIsLoggedin(true)}>Logout</button>
-              )}
-            </li>
-            <li className="px-2">{isOnline ? "✅" : "🛑"}</li>
+
+            {isLoggedin ? (
+              <>
+                <span className="text-lg hover:text-[#fc8019] px-2 cursor-pointer">
+                  {isLoggedin ? user.userName : ""}
+                </span>
+                <span onClick={() => setIsLoggedin(false)}>
+                  <LogoutIcon className="hover:text-[#fc8019] text-lg cursor-pointer" />
+                </span>
+              </>
+            ) : (
+              <button
+                className="hover:text-[#fc8019] text-lg px-2"
+                onClick={() => setIsLoggedin(true)}
+              >
+                Login
+              </button>
+            )}
+
+            <li className="px-2 text-lg">{isOnline ? "✅" : "🛑"}</li>
           </ul>
         </div>
         {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}

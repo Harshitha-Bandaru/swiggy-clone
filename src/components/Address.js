@@ -39,7 +39,7 @@ const Address = () => {
           <br />
           <button
             type="submit"
-            className="self-center border border-black p-2 rounded-md bg-[#60b246]"
+            className="self-center border p-2 rounded-md bg-[#60b246] text-white font-medium"
           >
             Add Address
           </button>

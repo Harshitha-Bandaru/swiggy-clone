@@ -76,12 +76,14 @@ const CartSummary = () => {
       </div>
       <div className="flex justify-between my-3">
         <button
-          className="bg-red-400 p-2 rounded-md"
+          className="bg-red-400 p-2 rounded-md text-white font-medium"
           onClick={() => dispatch(clearCart())}
         >
           Clear Cart
         </button>
-        <button className="bg-[#60b246] p-2 rounded-md">Checkout</button>
+        <button className="bg-[#60b246] p-2 rounded-md text-white font-medium">
+          Checkout
+        </button>
       </div>
     </div>
   );
