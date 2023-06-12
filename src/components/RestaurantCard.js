@@ -17,7 +17,7 @@ const RestaurantCard = ({
   // console.log({ costForTwo, sla });
   const { user } = useContext(UserContext);
   return (
-    <div className="card w-64 p-2 m-3 h-72  hover:shadow-lg hover:border hover:border-gray-200 flex flex-col justify-between items-start">
+    <div className="card w-72 p-4 m-3 h-80  hover:shadow-xl hover:border hover:border-gray-200 flex flex-col justify-between items-start">
       <img
         src={`${IMG_CDN_URL}${cloudinaryImageId}`}
         alt="subway-image"

@@ -28,9 +28,9 @@ const RestaurantMenu = () => {
   const lastMileTravelString = restaurantData?.sla?.lastMileTravelString;
   const deliveryTime = restaurantData?.sla?.slaString;
 
-  console.log(restaurantMenu);
-  console.log(restaurantMenu.length);
-  console.log(restaurantMenu.length === 0);
+  // console.log(restaurantMenu);
+  // console.log(restaurantMenu.length);
+  // console.log(restaurantMenu.length === 0);
 
   const dispatch = useDispatch();
   const handleAddItem = (item) => {

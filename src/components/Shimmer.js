@@ -6,7 +6,7 @@ const Shimmer = () => {
         .map((e, index) => (
           <div
             // className="shimmer-card m-5 mt-0 bg-gray-300 w-52 h-52"
-            className="card w-64 p-2 m-3 h-72  flex flex-col justify-between items-start bg-gray-200"
+            className="card w-72 p-2 m-3 h-80  flex flex-col justify-between items-start bg-gray-200"
             key={index}
           ></div>
         ))}
