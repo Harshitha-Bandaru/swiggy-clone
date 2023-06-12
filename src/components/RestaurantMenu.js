@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice.js";
 import nonVegIcon from "../assets/img/nonVegIcon.png";
 import vegIcon from "../assets/img/vegIcon.png";
+import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantMenu = () => {
   //   const params = useParams();
@@ -28,6 +29,8 @@ const RestaurantMenu = () => {
   const deliveryTime = restaurantData?.sla?.slaString;
 
   console.log(restaurantMenu);
+  console.log(restaurantMenu.length);
+  console.log(restaurantMenu.length === 0);
 
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
@@ -39,8 +42,8 @@ const RestaurantMenu = () => {
   // if (!restaurant) {
   //   return <Shimmer />;
   // }
-  return restaurantMenu.length === 0 ? (
-    <Shimmer />
+  return restaurantMenu.length === 1 ? (
+    <ShimmerMenu />
   ) : (
     <div className="flex flex-col justify-around items-center my-8">
       <div className="flex flex-row justify-between  w-4/6">
