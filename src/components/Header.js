@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import Logo from "../assets/img/savoury.png";
+import Logo from "../assets/img/Savoury.png";
 import { Link } from "react-router-dom";
 import useIsOnline from "../utils/useIsOnline";
 import UserContext from "../utils/UserContext";
