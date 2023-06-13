@@ -4,6 +4,11 @@ export const IMG_CDN_URL =
 export const EMPTY_CART_IMG =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
 
+export const socialMediaLinks = {
+  linkedin: "https://www.linkedin.com/in/harshitha-bandaru/",
+  github: "https://github.com/Harshitha-Bandaru",
+};
+
 export const restaurantsList = [
   {
     type: "restaurant",

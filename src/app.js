@@ -51,11 +51,13 @@ const AppLayout = () => {
   return (
     <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
-        <Header />
-        {/* <Body /> */}
-        <Outlet />
-        <Footer />
-        {/* <A /> */}
+        <div className="flex flex-col h-screen">
+          <Header />
+          {/* <Body /> */}
+          <Outlet />
+          <Footer />
+          {/* <A /> */}
+        </div>
       </UserContext.Provider>
     </Provider>
   );
