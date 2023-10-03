@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import UserContext from "../utils/UserContext";
+import { swiggyAPI } from "../constants";
 
 //no key<<index key<unique key
 //id:323673-this has default price
@@ -25,14 +26,14 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.592268156447577&lng=73.7404754100647&page_type=DESKTOP_WEB_LISTING"
-    );
-    // console.log(data);
+    const data = await fetch(swiggyAPI);
+    console.log(data);
     const json = await data.json();
-    // console.log(json);
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    // console.log(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const restaurantsArray = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    console.log(restaurantsArray);
+    setAllRestaurants(restaurantsArray);
+    setFilteredRestaurants(restaurantsArray);
   }
 
   console.log("render");
@@ -108,10 +109,10 @@ const Body = () => {
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
-              to={"/restaurants/" + restaurant.data.id}
-              key={restaurant.data.id}
+              to={"/restaurants/" + restaurant.info.id}
+              key={restaurant.info.id}
             >
-              <RestaurantCard {...restaurant.data} />
+              <RestaurantCard {...restaurant.info} />
             </Link>
           );
         })}

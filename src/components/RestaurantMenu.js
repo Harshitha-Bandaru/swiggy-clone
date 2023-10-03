@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { IMG_CDN_URL } from "../constants";
+import { IMG_CDN_URL, MENU_ITEM_IMAGE } from "../constants";
 import useRestaurant from "../utils/useRestaurant";
 import StarIcon from "@mui/icons-material/Star";
 import { useDispatch } from "react-redux";
@@ -110,7 +110,7 @@ const RestaurantMenu = () => {
               <div className="flex flex-col items-center">
                 <img
                   className="w-28 h-24"
-                  src={IMG_CDN_URL + item?.menuItemImageId}
+                  src={MENU_ITEM_IMAGE + item?.imageId}
                 />
                 <button
                   className="px-4 py-2 m-2 text-[#60b246] text-sm font-semibold border border-solid rounded-md hover:shadow-lg"

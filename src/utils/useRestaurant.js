@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 const useRestaurant = (id) => {
   const [restaurantData, setRestaurantData] = useState([]);
   const [restaurantMenu, setRestaurantMenu] = useState([{}]);
@@ -6,13 +7,12 @@ const useRestaurant = (id) => {
     getRestaurantInfo();
   }, []);
   async function getRestaurantInfo() {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5912716&lng=73.73890899999999&restaurantId=${id}&submitAction=ENTER`
-    );
+    const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`);
     const json = await data.json();
-    setRestaurantData(json?.data?.cards?.[0]?.card?.card?.info);
+    console.log(json?.data?.cards[0]);
+    setRestaurantData(json?.data?.cards[0]?.card?.card?.info);
     // console.log(json?.data?.cards[0]?.card?.card?.info);
-    console.log(json);
+    // console.log(json);
 
     const menuItems = [];
     const regularCard =
@@ -30,7 +30,7 @@ const useRestaurant = (id) => {
               id: menuItemId,
               name: menuItemName,
               price,
-              imageId: menuItemImageId,
+              imageId,
               description,
               defaultPrice,
               isVeg,
@@ -39,7 +39,7 @@ const useRestaurant = (id) => {
               menuItemId,
               menuItemName,
               price,
-              menuItemImageId,
+              imageId,
               description,
               defaultPrice,
               isVeg,
@@ -58,7 +58,7 @@ const useRestaurant = (id) => {
             id: menuItemId,
             name: menuItemName,
             price,
-            imageId: menuItemImageId,
+            imageId,
             description,
             defaultPrice,
             isVeg,
@@ -67,7 +67,7 @@ const useRestaurant = (id) => {
             menuItemId,
             menuItemName,
             price,
-            menuItemImageId,
+            imageId,
             description,
             defaultPrice,
             isVeg,
