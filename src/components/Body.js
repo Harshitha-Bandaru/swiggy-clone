@@ -29,9 +29,11 @@ const Body = () => {
     const data = await fetch(swiggyAPI);
     console.log(data);
     const json = await data.json();
-    // console.log(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    const restaurantsArray = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    console.log(restaurantsArray);
+    console.log(json?.data);
+    // const restaurantsArray = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const restaurantsArray =
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
     setAllRestaurants(restaurantsArray);
     setFilteredRestaurants(restaurantsArray);
   }
@@ -54,6 +56,7 @@ const Body = () => {
     <>
       <div className="p-3 mb-2">
         <input
+          data-testid="input-btn"
           type="text"
           className="bg-transparent m-1 p-1 rounded-sm focus:border-black"
           placeholder="Search"
@@ -62,6 +65,7 @@ const Body = () => {
         ></input>
 
         <button
+          data-testid="search-btn"
           type="submit"
           className="search-btn rounded-md m-1 p-1 bg-[#48c479] w-fit text-white"
           onClick={() => {
@@ -99,7 +103,10 @@ const Body = () => {
           }}
         ></input> */}
       </div>
-      <div className="restaurants-list flex flex-wrap justify-around">
+      <div
+        className="restaurants-list flex flex-wrap justify-around"
+        data-testid="res-list"
+      >
         {/* {RestaurantCard({ restaurant: restaurantsList[0] })} */}
         {/* <RestaurantCard {...restaurantsList[0].data} />
       <RestaurantCard {...restaurantsList[1].data} />

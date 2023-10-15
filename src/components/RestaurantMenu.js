@@ -80,7 +80,7 @@ const RestaurantMenu = () => {
       </div>
 
       <div className="w-4/6 ">
-        <ul>
+        <ul data-testid="res-menu">
           {restaurantMenu.map((item) => (
             <div
               key={item?.id}
@@ -115,6 +115,7 @@ const RestaurantMenu = () => {
                 <button
                   className="px-4 py-2 m-2 text-[#60b246] text-sm font-semibold border border-solid rounded-md hover:shadow-lg"
                   onClick={() => handleAddItem(item)}
+                  data-testid="add-btn"
                 >
                   ADD
                 </button>

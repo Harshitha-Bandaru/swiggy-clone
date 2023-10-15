@@ -1,6 +1,9 @@
 const ShimmerMenu = () => {
   return (
-    <div className="flex flex-col justify-around items-center my-8">
+    <div
+      className="flex flex-col justify-around items-center my-8"
+      data-testid="shimmer-menu"
+    >
       {Array(5)
         .fill("")
         .map((e, i) => (

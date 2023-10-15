@@ -9,7 +9,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const Title = () => {
   return (
     <a href="/">
-      <img className="h-24 w-28 p-4" src={Logo} alt="logo"></img>
+      <img
+        data-testid="logo"
+        className="h-24 w-28 p-4"
+        src={Logo}
+        alt="logo"
+      ></img>
     </a>
   );
 };
@@ -45,7 +50,9 @@ const Header = () => {
               <Link to="/instamart">Instamart</Link>
             </li>
             <li className="px-2 hover:text-[#fc8019] text-lg">
-              <Link to="/cart">Cart - {cartItemsCount}</Link>
+              <Link to="/cart" data-testid="cart">
+                Cart - {cartItemsCount}
+              </Link>
             </li>
 
             {isLoggedin ? (
@@ -66,7 +73,9 @@ const Header = () => {
               </button>
             )}
 
-            <li className="px-2 text-lg">{isOnline ? "✅" : "🛑"}</li>
+            <li className="px-2 text-lg" data-testid="online-status">
+              {isOnline ? "✅" : "🛑"}
+            </li>
           </ul>
         </div>
         {/* {loggedinUser() ? <button>Logout</button> : <button>Login</button>} */}
