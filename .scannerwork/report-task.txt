@@ -1,6 +1,0 @@
-projectKey=Savoury
-serverUrl=http://ngl001497:9005
-serverVersion=9.9.1.69595
-dashboardUrl=http://ngl001497:9005/dashboard?id=Savoury
-ceTaskId=AYkkwLGCPNMvc36xVhrk
-ceTaskUrl=http://ngl001497:9005/api/ce/task?id=AYkkwLGCPNMvc36xVhrk
