@@ -1,5 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurantsList } from "../constants";
+import { restaurantList } from "../data/restaurantList";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -26,16 +26,17 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(swiggyAPI);
-    console.log(data);
-    const json = await data.json();
-    console.log(json?.data);
+    // const data = await fetch(swiggyAPI);
+    // console.log(data);
+    // const json = await data.json();
+    // console.log(json?.data);
     // const restaurantsArray = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    const restaurantsArray =
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setAllRestaurants(restaurantsArray);
-    setFilteredRestaurants(restaurantsArray);
+    // const restaurantsArray =
+    //   json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants;
+
+    setAllRestaurants(restaurantList);
+    setFilteredRestaurants(restaurantList);
   }
 
   console.log("render");
@@ -50,7 +51,7 @@ const Body = () => {
   // if (filteredRestaurants?.length === 0)
   //   return <h1>No restaurants match your filter!</h1>;
 
-  return !allRestaurants?.length ? (
+  return !allRestaurants.length ? (
     <Shimmer />
   ) : (
     <>
@@ -114,10 +115,11 @@ const Body = () => {
       <RestaurantCard {...restaurantsList[3].data} /> */}
         {/* Write logic for no restaurants found, here */}
         {filteredRestaurants.map((restaurant) => {
+          console.log(restaurant.info);
           return (
             <Link
-              to={"/restaurants/" + restaurant.info.id}
-              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info?.id}
+              key={restaurant.info?.id}
             >
               <RestaurantCard {...restaurant.info} />
             </Link>

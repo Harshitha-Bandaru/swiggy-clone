@@ -14,13 +14,13 @@ const RestaurantCard = ({
   // const { restaurant } = props;
   // const { data } = restaurant;
   // const { name, cloudinaryImageId, cuisines, avgRating } = data;
-  // console.log({ costForTwo, sla });
+  console.log({ costForTwo, sla });
   const { user } = useContext(UserContext);
   return (
     <div className="card w-72 p-4 m-3 h-80  hover:shadow-xl hover:border hover:border-gray-200 flex flex-col justify-between items-start">
       <img
         src={`${IMG_CDN_URL}${cloudinaryImageId}`}
-        alt="subway-image"
+        alt={name}
         className="h-[25vh] w-full"
       ></img>
       <h2 className="font-semibold text-base pt-2">{name}</h2>
@@ -39,7 +39,7 @@ const RestaurantCard = ({
         </div>
 
         <span className="text-xs">{sla?.deliveryTime} MINS</span>
-        <span className="text-xs">₹{costForTwo / 100} FOR TWO</span>
+        <span className="text-xs">{costForTwo.toUpperCase()}</span>
       </div>
 
       {/* <h4 className="text-sm">{user.userName}</h4> */}
